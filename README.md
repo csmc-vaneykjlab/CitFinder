@@ -32,17 +32,20 @@ commond line input	| description
 * Step1: prepare your input files:
 
   * ```Cit_Mouse_Organs_SpecLib.splib```: Splib file generated from spectrast tool
-  * ```Cit_Mouse_Organs_SpecLib_CitFinder_Skyline.csv```: Skyline reports for validation
+  * ```Cit_Mouse_Organs_SpecLib_Skyline.csv```: Skyline reports for validation
 
-* Step2: ```python CitFinder.py -i Cit_Mouse_Organs_SpecLib.splib -o Cit_Mouse_Organs_SpecLib_CitFinder_Skyline.csv -g Heart,Lung,Liver,Muscle,Kidney,Brain -f UP_Mouse_Rev_Canonical_20180228_DECOY_iRT.fasta -m R[157] -s Cit_Mouse_Organs_SpecLib_Skyline.csv```
+* Step2: identification of citrullinated sites
+```python CitFinder.py -i Cit_Mouse_Organs_SpecLib.splib -o Cit_Mouse_Organs_SpecLib_CitFinder.csv -g Heart,Lung,Liver,Muscle,Kidney,Brain -f UP_Mouse_Rev_Canonical_20180228_DECOY_iRT.fasta -m R[157]```
 
-Upon completion, ```Cit_Mouse_Organs_SpecLib_CitFinder_Skyline.csv``` will contain the modified peptides pairs with RT information, neutral loss and skyline validation results.
+Upon completion, ```Cit_Mouse_Organs_SpecLib_CitFinder.csv``` will contain the modified peptides pairs with RT and neutral loss information
+
+* Step3: validation of citrullinated sites
+```python CitFinder.py -i Cit_Mouse_Organs_SpecLib.splib -o Cit_Mouse_Organs_SpecLib_Skyline_CitFinder.csv -g Heart,Lung,Liver,Muscle,Kidney,Brain -f UP_Mouse_Rev_Canonical_20180228_DECOY_iRT.fasta -m R[157] -s Cit_Mouse_Organs_SpecLib_Skyline.csv```
+
+Upon completion, ```Cit_Mouse_Organs_SpecLib_Skyline_CitFinder.csv``` will contain the modified peptides pairs with RT and neutral loss information along with skyline validation results.
 
 ### Benchmark Datasets
-Please refer to the data in the Example folder. We have seperated the data into good, okay and bad categories. And we have put the skyline manual validation spectrums for comparison. For example, to run the good data, simply running the following:
-```
-python CitFinder.py -i Cit_Good_Examples.splib -o Good_Examples_CitFinder_skyline.csv -f UP_Mouse_Rev_Canonical_20180228_DECOY_iRT.fasta -m R[157] -g Heart,Lung,Liver,Muscle,Kidney,Brain -s skyline_report.csv
-```
+All inputs and outputs are placed in the Example folder. Manual skyline validation spectrums ```Skyline_Manual_Validation_Spectrum.pdf``` is also placed in the folder for the purposed of comparison. 
 
 ### Support
 If you have any questions about CitFinder, please contact Justyna Fert-Bober (Justyna.Fertbober@cshs.org) or Vidya Venkatraman (vidya.venkatraman@cshs.org)
