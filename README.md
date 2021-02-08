@@ -35,14 +35,16 @@ commond line input	| description
 
 * Step2: identification of citrullinated sites:  
 ```python CitFinder.py -i Cit_Mouse_Organs_SpecLib.splib -o Cit_Mouse_Organs_SpecLib_CitFinder.csv -g Heart,Lung,Liver,Muscle,Kidney,Brain -f UP_Mouse_Rev_Canonical_20180228_DECOY_iRT.fasta -m R[157]```  
+
 Upon completion, ```Cit_Mouse_Organs_SpecLib_CitFinder.csv``` will contain the modified peptides pairs with RT and neutral loss information
 
 * Step3: validation of citrullinated sites  
 ```python CitFinder.py -i Cit_Mouse_Organs_SpecLib.splib -o Cit_Mouse_Organs_SpecLib_Skyline_CitFinder.csv -g Heart,Lung,Liver,Muscle,Kidney,Brain -f UP_Mouse_Rev_Canonical_20180228_DECOY_iRT.fasta -m R[157] -s Cit_Mouse_Organs_SpecLib_Skyline.csv```  
+
 Upon completion, ```Cit_Mouse_Organs_SpecLib_Skyline_CitFinder.csv``` will contain the modified peptides pairs with RT and neutral loss information along with skyline validation results.
 
 ### Benchmark Datasets
-All inputs and outputs are placed in the Example folder. Manual skyline validation spectrums ```Skyline_Manual_Validation_Spectrum.pdf``` is also placed in the folder for the purposed of comparison. 
+All inputs and outputs are placed in the Example folder. Manual skyline validation spectrums ```Skyline_Manual_Validation_Spectrum.pdf``` is also placed in the folder for the purposes of comparison. 
 
 ### Support
 If you have any questions about CitFinder, please contact Justyna Fert-Bober (Justyna.Fertbober@cshs.org) or Vidya Venkatraman (vidya.venkatraman@cshs.org)
