@@ -30,18 +30,15 @@ commond line input	| description
 
 ### Running
 * Step1: prepare your input files:
-
   * ```Cit_Mouse_Organs_SpecLib.splib```: Splib file generated from spectrast tool
   * ```Cit_Mouse_Organs_SpecLib_Skyline.csv```: Skyline reports for validation
 
-* Step2: identification of citrullinated sites
-```python CitFinder.py -i Cit_Mouse_Organs_SpecLib.splib -o Cit_Mouse_Organs_SpecLib_CitFinder.csv -g Heart,Lung,Liver,Muscle,Kidney,Brain -f UP_Mouse_Rev_Canonical_20180228_DECOY_iRT.fasta -m R[157]```
-
+* Step2: identification of citrullinated sites:  
+```python CitFinder.py -i Cit_Mouse_Organs_SpecLib.splib -o Cit_Mouse_Organs_SpecLib_CitFinder.csv -g Heart,Lung,Liver,Muscle,Kidney,Brain -f UP_Mouse_Rev_Canonical_20180228_DECOY_iRT.fasta -m R[157]```  
 Upon completion, ```Cit_Mouse_Organs_SpecLib_CitFinder.csv``` will contain the modified peptides pairs with RT and neutral loss information
 
-* Step3: validation of citrullinated sites
-```python CitFinder.py -i Cit_Mouse_Organs_SpecLib.splib -o Cit_Mouse_Organs_SpecLib_Skyline_CitFinder.csv -g Heart,Lung,Liver,Muscle,Kidney,Brain -f UP_Mouse_Rev_Canonical_20180228_DECOY_iRT.fasta -m R[157] -s Cit_Mouse_Organs_SpecLib_Skyline.csv```
-
+* Step3: validation of citrullinated sites  
+```python CitFinder.py -i Cit_Mouse_Organs_SpecLib.splib -o Cit_Mouse_Organs_SpecLib_Skyline_CitFinder.csv -g Heart,Lung,Liver,Muscle,Kidney,Brain -f UP_Mouse_Rev_Canonical_20180228_DECOY_iRT.fasta -m R[157] -s Cit_Mouse_Organs_SpecLib_Skyline.csv```  
 Upon completion, ```Cit_Mouse_Organs_SpecLib_Skyline_CitFinder.csv``` will contain the modified peptides pairs with RT and neutral loss information along with skyline validation results.
 
 ### Benchmark Datasets
